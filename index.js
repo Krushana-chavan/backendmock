@@ -4,6 +4,7 @@ const express = require("express");
 const UserModel = require("./Models/Signup.model");
 const bcrypt = require("bcrypt");
 const app = express();
+const jwt=require("jsonwebtoken");
 
 app.use(express.urlencoded({ extended: true }));
 
