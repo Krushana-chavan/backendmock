@@ -80,7 +80,7 @@ app.post("/login",async(req,res)=>{
     }
     )
     app.post("/maj-ser",async(req,res)=>{
-      try{
+      try{d
         let {data} = req.body;
         let savedata = new MajModel({data})
         save.savedata()
@@ -92,8 +92,8 @@ app.post("/login",async(req,res)=>{
     )
     app.post("/med-ser",async(req,res)=>{
       try{
-        let {data} = req.body;
-        let savedata = new MedModel({data})
+        let {data1} = req.body;
+        let savedata = new MedModel({data1})
         save.savedata()
         res.sendStatus(201).send("data saved succefully")
       }catch(err){
