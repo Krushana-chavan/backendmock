@@ -81,7 +81,7 @@ app.post("/login",async(req,res)=>{
     )
     app.get("/signup",async(req,res)=>{
       try{
-        let data = new UserModel.find({})
+        let data = await UserModel.find({})
         
         res.sendStatus(201).send(data)
       }catch(err){
@@ -92,7 +92,7 @@ app.post("/login",async(req,res)=>{
     )
     app.get("/login",async(req,res)=>{
       try{
-        let data = new UserModel.find({})
+        let data = await UserModel.find({})
         
         res.sendStatus(201).send(data)
       }catch(err){
