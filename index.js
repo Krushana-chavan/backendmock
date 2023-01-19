@@ -79,28 +79,8 @@ app.post("/login",async(req,res)=>{
       }
     }
     )
-    app.get("/signup",async(req,res)=>{
-      try{
-        let data = await UserModel.find({})
-        
-        res.sendStatus(201).send(data)
-      }catch(err){
-        console.log(err)
-      }
-    }
-    
-    )
-    app.get("/login",async(req,res)=>{
-      try{
-        let data = await UserModel.find({})
-        
-        res.sendStatus(201).send(data)
-      }catch(err){
-        console.log(err)
-      }
-    }
-    
-    )
+ 
+
     app.post("/maj-ser",async(req,res)=>{
       try{d
         let {data} = req.body;
