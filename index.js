@@ -57,7 +57,7 @@ app.post("/login",async(req,res)=>{
                 res.send({msg:"Something went wrong try after sometime"})
             }
             if(result){
-                const token=jwt.sign({user_id:user_id,email:email},process.env.SECRET_KEY)
+                const token=jwt.sign({user_id:user_id,email:email},"KRUS1234")
             res.send({msg:"Login succesfull",token})
             }else{
                 res.send({msg:"Login Failed"})
