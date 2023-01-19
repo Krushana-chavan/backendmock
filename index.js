@@ -11,7 +11,7 @@ const MedModel = require("./Models/med-ser.model");
 const LowModel = require("./Models/low-ser.model");
 const cors = require("cors");
 app.use(express.urlencoded({ extended: true }));
-
+mongoose.set('strictQuery', false);
 app.use(express.json());
 app.use(cors());
 app.post("/signup", (req, res) => {
