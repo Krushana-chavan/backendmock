@@ -39,6 +39,31 @@ app.post("/signup", (req, res) => {
   });
 });
 
+
+app.post("/login",async(req,res)=>{
+    const {email,password}=req.body
+    const user=await UserModel.findOne({email});
+    
+    if(user){
+        const hashed_pass=user.password;
+        const user_id=user._id;
+        bcrypt.compare(password,hashed_pass,function(err,result){
+            if(err){
+                res.send({msg:"Something went wrong try after sometime"})
+            }
+            if(result){
+                const token=jwt.sign({user_id:user_id,email:email},process.env.SECRET_KEY)
+            res.send({msg:"Login succesfull",token})
+            }else{
+                res.send({msg:"Login Failed"})
+            }
+        }
+)
+}else{
+    res.send("email was not specified!")
+}
+    })
+
 mongoose.connect(process.env.db_url).then(() => {
   app.listen(8080, () => {
     console.log("server statrted on port 8080");
